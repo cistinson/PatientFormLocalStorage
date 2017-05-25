@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Explore the World!</title>
+    <title>Patient Log 2</title>
 
     <style>
       
@@ -43,7 +43,7 @@
   </head>
 
   <body>
-    <h1>Patient Log</h1>
+    <h1>Patient Log Two</h1>
     
     <div id="table" class="hidden">
       <h3>List of Patients:</h3>
@@ -76,13 +76,16 @@
               
        $("#submitButton").on("click", function(){
         
-         var newName = $("#nameInput").val();
-         var newAge = $("#ageInput").val();
+         localStorage.setItem("newName", $('#nameInput').val());
+         localStorage.setItem("newAge", $('#ageInput').val());
+         
+         var value = localStorage.getItem("newName");
+         var value2 = localStorage.getItem("newAge");
          
          $("div:last").addClass("hidden").removeClass("active");
          $("div:first").addClass("active").removeClass("hidden"); 
          
-         $('#table tbody').append('<tr><td>' + newName + '</td><td>' + newAge + '</td></tr>');
+         $('#table tbody').append('<tr><td>' + value + '</td><td>' + value2 + '</td></tr>');
          
          event.preventDefault();                 
          
